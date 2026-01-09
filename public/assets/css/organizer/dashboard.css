@@ -1,0 +1,137 @@
+ section h2{
+    color: #4f4f4f;
+}
+.cards{
+    display: flex;
+}
+.row{
+        display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 30px;
+}
+.row .card{
+        background: transparent;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.card .icon i{
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 22px;
+}
+.icon .fa-list-check{
+    color: #2563EB;
+    background-color:#DBEAFE ;
+}
+.icon .fa-circle-check{
+    color: #16A34A;
+    background-color:#DCFCE7;
+}
+.icon .fa-clock{
+    color: #D97706;
+    background-color:#FEF3C7;
+}
+.icon .fa-users{
+    color: #7C3AED;
+    background-color:#EDE9FE ;
+}
+.card .detail{
+     display: grid;
+    gap: 10px
+}
+.card .detail h3{
+    color: #9d9d9d;
+    font-weight: 100;
+    font-size: 16px;
+}
+.card .detail p{
+    font-size: 24px;
+    font-weight: 600;
+}
+.events{
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+}
+.recent-events{
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+.recent-events h3{
+    color: #4f4f4f;
+}
+.all{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead tr {
+    background-color: #f8f9fa;
+    text-align: left;
+}
+
+th, 
+td {
+    padding: 12px;
+    word-break: break-word;
+}
+
+th {
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+}
+
+ tbody tr {
+    border-bottom: 1px solid #dee2e6;
+}
+
+ tbody tr:last-child {
+    border-bottom: none;
+}
+.upcoming-events{
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.upcoming-events h3{
+     color: #4f4f4f;
+}
+.quick-actions{
+    display: grid;
+}
+.view{
+    background-color: #2563EB;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.edit{
+      background: #f59e0b;
+  color: #fff;
+  padding: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.see{
+     background-color: #042768;
+     color: #fff;
+     border-radius: 8px;
+     padding: 5px 10px;
+     text-decoration: none;
+
+}
