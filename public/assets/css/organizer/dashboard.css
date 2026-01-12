@@ -128,10 +128,15 @@ th {
     text-decoration: none;
 }
 .see{
-     background-color: #042768;
      color: #fff;
      border-radius: 8px;
      padding: 5px 10px;
      text-decoration: none;
+     color: #6a6a6a;
+     border: 1px solid #ddd;
 
+}
+.see:hover{
+    background-color: #f7f7f7f7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

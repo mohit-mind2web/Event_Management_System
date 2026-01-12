@@ -1,0 +1,41 @@
+.bg-image{
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url('https://beamian.com/wp-content/uploads/2022/02/How_to_Choose_the_Right_Event_Management_Software-scaled.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    padding: 0 20px;
+}
+.hero-content {
+    max-width: 700px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.hero-content h2 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color:#fff;
+}
+
+.hero-content p {
+    font-size: 21px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: #b8afaf;
+}
+
+.hero-btn {
+        color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}

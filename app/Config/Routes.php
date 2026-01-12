@@ -25,8 +25,17 @@ $routes->group('admin', ['filter' => 'group:admin,superadmin'], function($routes
 
 $routes->group('organizer', ['filter' => 'group:organizer'], function($routes) {
     $routes->get('dashboard', 'Organizer\DashboardController::index');
+    $routes->get('createevent', 'Organizer\CreateeventController::index');
+    $routes->get('myevents', 'Organizer\MyEventsController::index');
+    $routes->get('events/view/(:num)', 'Organizer\EventDetailsController::view/$1');
+    $routes->get('events/edit/(:num)', 'Organizer\EventDetailsController::edit/$1');
 });
+
 
 $routes->group('user', ['filter' => 'group:user'], function($routes) {
     $routes->get('dashboard', 'User\DashboardController::index');
 });
+
+$routes->post('api/events', 'Api\EventController::create');
+$routes->post('api/events/update/(:num)', 'Api\EventController::update/$1');
+$routes->get('api/categories/(:num)/subcategories', 'Api\SubcategoryController::getByCategory/$1');

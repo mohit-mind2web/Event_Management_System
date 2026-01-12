@@ -1,23 +1,19 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->include('partials/header') ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/homepage.css" />
-    <title>Matrimony Website</title>
+    <title>Event Management System</title>
 </head>
 <body>
-<section class="hero">
+    <div class="bg-image">
     <div class="hero-content">
-        <h2>Find Your Perfect Life Partner</h2>
-          <p>
-            Welcome to <strong>SoulMates</strong>, the trusted platform for connecting hearts and building meaningful relationships.  
-            Join thousands of singles looking for love, companionship, and a lifetime of happiness.
-        </p>
+        <!--event managemnt system -->
+        <h2>Manage Your Events Effortlessly</h2>
+          <p>Welcome to <strong>Eventease</strong>, a complete event management system that helps you
+            create, organize, and manage events seamlessly. From planning to execution,
+            Eventease makes event handling simple, efficient, and stress-free.</p>
         <a href="/register" class="btn hero-btn">Get Started</a>
     </div>
-</section>
-
+    </div>
 </body>
-</html>
