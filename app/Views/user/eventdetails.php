@@ -32,10 +32,10 @@
                     <span class="badge bg-secondary ms-2">Free</span>
                 <?php endif; ?>
             </div>
-            
-            <?php if ($event['status'] == 0 || $event['status'] == 2): ?>
-                <a href="/organizer/events/edit/<?= $event['id'] ?>" class="btn-edit">Edit Event</a>
-            <?php endif; ?>
+
+
+                <a href="/user/events/register/<?= $event['id'] ?>" class="btn-edit">Register Now</a>
+           
         </div>
     </section>
 
@@ -84,9 +84,8 @@
             <p><?= esc($event['description']) ?></p>
         </div>
 </section>
-<div class="back">
-        <a href="/organizer/myevents">&larr; Back to My Events</a>
+ <div class="back">
+        <a href="/user/events">&larr; Back to My Events</a>
         </div>
-
     </section>
 </main>

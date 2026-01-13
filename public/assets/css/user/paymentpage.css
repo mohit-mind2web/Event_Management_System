@@ -1,0 +1,47 @@
+.payment-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.order-summary {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.order-summary h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+.amount-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-top: 10px;
+}
+.btn-pay {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-pay:hover {
+  background-color: #218838;
+}
+.order-summary h2{
+    color: #4f4f4f;
+}
+.order-summary p{
+
+    margin-top: 10px;
+}
+

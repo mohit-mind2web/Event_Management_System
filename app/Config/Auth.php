@@ -455,7 +455,7 @@ class Auth extends ShieldAuth
             } elseif ($user->inGroup('organizer')) {
                 return $this->getUrl('organizer/dashboard');
             } elseif ($user->inGroup('user')) {
-                return $this->getUrl('user/dashboard');
+                return $this->getUrl('user/events');
             }
         }
 

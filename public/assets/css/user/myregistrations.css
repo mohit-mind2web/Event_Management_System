@@ -1,0 +1,56 @@
+.registration-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f0ecec;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.event-thumb {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.reg-details {
+  flex-grow: 1;
+}
+.reg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.reg-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.status-confirmed {
+  background-color: #d4edda;
+  color: #155724;
+}
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.reg-details p{
+   color:#666; 
+   font-size:0.9rem;
+}
+.reg-details p strong{
+  margin-top: 10px;
+}
+

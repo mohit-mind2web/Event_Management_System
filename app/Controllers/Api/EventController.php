@@ -49,11 +49,11 @@ class EventController extends ResourceController
             'organizer_id'   => $userId,
             'category_id'    => $this->request->getPost('category_id'),
             'subcategory_id' => $this->request->getPost('subcategory_id') ?: null,
-            'title'          => $this->request->getPost('title'),
-            'description'    => $this->request->getPost('description'),
+            'title'          => trim($this->request->getPost('title')),
+            'description'    => trim($this->request->getPost('description')),
             'start_datetime' => $startDatetime,
             'end_datetime'   => $endDatetime,
-            'location'       => $this->request->getPost('location'),
+            'location'       => trim($this->request->getPost('location')),
             'capacity'       => $this->request->getPost('capacity'),
             'is_paid'        => $this->request->getPost('is_paid') ? 1 : 0,
             'price'          => $this->request->getPost('price') ?: null,
@@ -88,7 +88,7 @@ class EventController extends ResourceController
         }
 
         $rules = [
-            'title'          => 'required|min_length[3]|max_length[255]',
+            'title'          => 'required|trim|strip_tags|min_length[3]|max_length[255]',
             'category_id'    => 'required|integer',
             'subcategory_id' => 'permit_empty|integer',
             'start_datetime' => 'required|valid_date',
@@ -122,11 +122,11 @@ class EventController extends ResourceController
         $data = [
             'category_id'    => $this->request->getPost('category_id'),
             'subcategory_id' => $this->request->getPost('subcategory_id') ?: null,
-            'title'          => $this->request->getPost('title'),
-            'description'    => $this->request->getPost('description'),
+            'title'          => trim($this->request->getPost('title')),
+            'description'    => trim($this->request->getPost('description')),
             'start_datetime' => $startDatetime,
             'end_datetime'   => $endDatetime,
-            'location'       => $this->request->getPost('location'),
+            'location'       => trim($this->request->getPost('location')),
             'capacity'       => $this->request->getPost('capacity'),
             'is_paid'        => $this->request->getPost('is_paid') ? 1 : 0,
             'price'          => $this->request->getPost('price') ?: null,

@@ -19,6 +19,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>S.No</th>
                         <th>Event Title</th>
                         <th>Date</th>
                         <th>Location</th>
@@ -28,10 +29,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($events as $event): ?>
+                    <?php foreach ($events as $index=> $event): ?>
                         <tr>
+                            <td><?= $index + 1 ?></td>
                             <td>
-                                <strong><?= esc($event['title']) ?></strong>
+                                <span><?= esc($event['title']) ?></span>
                                 <?php if ($event['is_paid']): ?>
                                     <span class="badge bg-success">(Paid)</span>
                                 <?php endif; ?>

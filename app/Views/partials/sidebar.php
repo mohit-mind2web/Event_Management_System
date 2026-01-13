@@ -4,18 +4,14 @@
         ?>
         <?php if (auth()->user()->inGroup('user')): ?>
             <ul>
-                <li><a href="/user/matches" class="<?= $current_page == '/user/matches' ? 'active' : '' ?>"><i class="fas fa-heart"></i>My Matches</a></li>
-                <?php if ($_SESSION['profile_complete'] != 1): ?>
-                    <li><a href="/user/profilecreate" class="<?= $current_page == '/user/profilecreate' ? 'active' : '' ?>"><i class="fas fa-user-check"></i>Complete Profile</a></li>
-                <?php endif; ?>
-                <li><a href="/user/interests" class="<?= $current_page == '/user/interests' ? 'active' : '' ?>"><i class="fas fa-handshake"></i>Interests Received</a></li>
-                <li><a href="/user/shortlists" class="<?= $current_page == '/user/shortlists' ? 'active' : '' ?>"><i class="fas fa-bookmark"></i>Shortlists Profiles</a></li>
-                <li><a href="/user/chatinbox" class="<?= $current_page == '/user/chatinbox' ? 'active' : '' ?>"><i class="fas fa-comments"></i>Chat Inbox</a></li>
-                <li><a href="/user/queries" class="<?= $current_page == '/user/queries' ? 'active' : '' ?>"><i class="fas fa-question-circle"></i>Your queries</a></li>
-                <li><a href="/user/contactsupport" class="<?= $current_page == '/user/contactsupport' ? 'active' : '' ?>"><i class="fas fa-headset"></i>Help & Support</a></li>
+                <li><a href="/user/events" class="<?= $current_page == '/user/events' ? 'active' : '' ?>"><i class="fas fa-heart"></i>Events</a></li>
+                <li><a href="/user/registrations" class="<?= $current_page == '/user/registrations' ? 'active' : '' ?>"><i class="fas fa-calendar-check"></i>My Registrations</a></li>
+                <li><a href="/user/payments" class="<?= $current_page == '/user/payments' ? 'active' : '' ?>"><i class="fas fa-credit-card"></i>Payments</a></li>
+                <li><a href="/user/myprofile" class="<?= $current_page == '/user/myprofile' ? 'active' : '' ?>"><i class="fas fa-user"></i>My Profile</a></li>
                 <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         <?php endif; ?>
+        
         <?php if (auth()->user()->inGroup('organizer')): ?>
             <ul>
                 <li><a href="/organizer/dashboard" class="<?= $current_page == '/organizer/dashboard' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i>Dashboard</a></li>
@@ -29,13 +25,13 @@
         <?php if (auth()->user()->inGroup('admin')): ?>
             <ul>
                 <li><a href="/admin/dashboard" class="<?= $current_page == '/admin/dashboard' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i>Dashboard</a></li>
-                <li><a href="/admin/usermanage" class="<?= $current_page == '/admin/usermanage' ? 'active' : '' ?>"><i class="fas fa-users-cog"></i>Manage Users</a></li>
-                <li><a href="/admin/managequeries" class="<?= $current_page == '/admin/managequeries' ? 'active' : '' ?>"> <i class="fas fa-envelope-open-text"></i>Event Approval</a></li>
-                <li><a href="/admin/managereports" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>"> <i class="fas fa-flag"></i>Manage Events</a></li>
-                <li><a href="/admin/managereports" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>"> <i class="fas fa-flag"></i>Manage Categories</a></li>
-                <li><a href="/admin/managereports" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>"> <i class="fas fa-flag"></i>View Registration</a></li>
-                <li><a href="/admin/managereports" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>"> <i class="fas fa-flag"></i>Payment Monitoring</a></li>
-                <li><a href="/admin/activity-logs" class="<?= $current_page == '/admin/activity-logs' ? 'active' : '' ?>"><i class="fas fa-clipboard-list"></i>Activity Logs</a></li>
+                <li><a href="/admin/event-approval" class="<?= $current_page == '/admin/event-approval' ? 'active' : '' ?>"> <i class="fas fa-clipboard-check"></i>Event Approval</a></li>
+                <li><a href="/admin/allevents" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>"> <i class="fas fa-calendar-days"></i>All Events</a></li>
+                <li><a href="/admin/manage-categories" class="<?= $current_page == '/admin/manage-categories' ? 'active' : '' ?>"> <i class="fas fa-layer-group"></i> Categories</a></li>
+                <li><a href="/admin/managereports" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>">  <i class="fas fa-users"></i>View Registration</a></li>
+                <li><a href="/admin/managereports" class="<?= $current_page == '/admin/manageevents' ? 'active' : '' ?>">  <i class="fas fa-credit-card"></i>Payment Monitoring</a></li>
+                <li><a href="/admin/usermanage" class="<?= $current_page == '/admin/usermanage' ? 'active' : '' ?>">   <i class="fas fa-users-cog"></i>Manage Users</a></li>
+                <li><a href="/admin/activity-logs" class="<?= $current_page == '/admin/activity-logs' ? 'active' : '' ?>"><i class="fas fa-clock-rotate-left"></i>Activity Logs</a></li>
                 <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         <?php endif; ?>

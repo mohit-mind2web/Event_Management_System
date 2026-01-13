@@ -8,7 +8,7 @@
     <title>Event Managemnt System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/header.css" />
-    <script src="/assets/js/tabs.js"></script>
+    <script src="/assets/js/header.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <nav>
                     <?php if (auth()->user()->inGroup('user')): ?>
                         <ul>
-                            <li><a href="/user/profileview?id=<?= $_SESSION['user_id'] ?>">Your Profile</a></li>
+                            <li><a href="/user/profileview?id">Your Profile</a></li>
                             <li> <a href="/user/profileedit">Edit Profile</a></li>
                             <li><a href="/user/contactsupport">Get Help</a></li>
                             <li><a href="/logout">Logout</a></li>

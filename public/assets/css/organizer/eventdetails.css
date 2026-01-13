@@ -30,50 +30,50 @@
   color: #666;
   font-size: 0.9em;
 }
-.free h2{
-    margin-bottom: 5px;
-    font-size: 20px;
-    color: rgb(52 73 94);
+.free h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: rgb(52 73 94);
 }
-.event-head{
-    margin-top: 20px;
+.event-head {
+  margin-top: 20px;
 }
-.event-detail{
-    margin-top: 20px;
+.event-detail {
+  margin-top: 20px;
 }
-.event-detail h2{
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: rgb(52 73 94);
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+.event-detail h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: rgb(52 73 94);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
 }
 .event-detail ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 .event-detail li strong {
-    width: 313px;
-    display: inline-block;
-    color: #555;
+  width: 313px;
+  display: inline-block;
+  color: #555;
 }
-.event-detail li{
-        padding: 10px 0;
-    border-bottom: 1px dashed #eee;
+.event-detail li {
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
 }
-.event-description{
-    margin-top: 20px;
+.event-description {
+  margin-top: 20px;
 }
-.description-box p{
-    line-height: 1.6;
-    color: rgb(118 132 147);
+.description-box p {
+  line-height: 1.6;
+  color: rgb(118 132 147);
 }
-.description-box h3{
-        font-size: 20px;
-    margin-bottom: 15px;
-    color: rgb(52 73 94);
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+.description-box h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: rgb(52 73 94);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
 }
 .status-badge {
   padding: 5px 10px;
@@ -93,49 +93,70 @@
   background-color: #f8d7da;
   color: #721c24;
 }
-.btn-edit{
-      background: #f59e0b;
+.btn-edit {
+  background: #f59e0b;
   color: #fff;
-  padding: 5px 10px;        
-    border-radius: 8px;
-    text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-decoration: none;
 }
-.nobanner{
-    width:100%; 
-    height:200px; 
-    background:#eee; 
-    display:flex; 
-    align-items:center; 
-    justify-content:center; 
-    border-radius:8px; 
-    margin-bottom:20px;
+.nobanner {
+  width: 100%;
+  height: 200px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
-.back{
-    margin-top: 20px;
-    display: flex;
-    justify-content: end;
+.back {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
 }
-.back a{
-        padding: 8px 16px;
-    background: #f7f7f7;
+.back a {
+  padding: 8px 16px;
+  background: #f7f7f7;
+  border-radius: 6px;
+  color: #404040;
+  text-decoration: none;
+}
+.back a:hover {
+  background-color: #e9e9e9;
+}
+.bg-success {
+  background-color: #e8f1ff;
+  color: #084298;
+}
+.badge {
+  margin-left: 10px;
+  padding: 5px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.btn-approve:hover {
+  background-color: #218838;
+  color: white;
+}
+.btn-reject:hover {
+  background-color: #c82333;
+  color: white;
+}
+.btn-approve {
+  background-color: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.btn-reject {
+  background-color: #dc3545;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
     border-radius: 6px;
-    color: #404040;
-    text-decoration: none;
 }
-.back a:hover{
-    background-color:#e9e9e9;
-
-}
-.bg-success{
-    background-color: #e8f1ff;
-    color: #084298;
-}
-.badge{
-    margin-left: 10px;
-        padding: 5px;
-    background: green;
-    border-radius: 10px;
-    color: white;
-    font-size: 12px;
-}
-
