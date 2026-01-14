@@ -148,7 +148,7 @@
 .btn-approve {
   background-color: #28a745;
   color: white;
-  padding: 5px 10px;
+  padding: 8px 10px;
   border-radius: 6px;
   text-decoration: none;
   margin-right: 10px;
@@ -157,6 +157,6 @@
   background-color: #dc3545;
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 8px 10px;
     border-radius: 6px;
 }

@@ -1,0 +1,39 @@
+.ticket-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px dashed #343a40;
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+}
+
+.ticket-header {
+    border-bottom: 2px solid #343a40;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.ticket-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+}
+
+.ticket-info {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.ticket-label {
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.print-btn {
+    margin-top: 20px;
+}
+.container-fluid{
+    margin-top: 100px;
+}

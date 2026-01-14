@@ -4,6 +4,7 @@ namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
 use App\Models\EventModel;
+use App\Models\EventRegistrationModel;
 
 class EventsController extends BaseController
 {
@@ -12,18 +13,20 @@ class EventsController extends BaseController
         $events = new EventModel();
         $eventdetails = $events->where('status', 1)->findAll();
 
-        $registeredEventIds = [];
+        $userRegistrations = [];
         if (auth()->loggedIn()) {
-            $registrationModel = new \App\Models\EventRegistrationModel();
-            $registrations = $registrationModel->select('event_id')
-                                               ->where('user_id', auth()->user()->id)
+            $registrationModel = new  EventRegistrationModel();
+            $registrations = $registrationModel->where('user_id', auth()->user()->id)
                                                ->findAll();
-            $registeredEventIds = array_column($registrations, 'event_id');
+            
+            foreach ($registrations as $reg) {
+                $userRegistrations[$reg['event_id']] = $reg;
+            }
         }
 
         return view('user/events', [
             'eventdetails' => $eventdetails,
-            'registeredEventIds' => $registeredEventIds
+            'userRegistrations' => $userRegistrations
         ]);
     }
 }

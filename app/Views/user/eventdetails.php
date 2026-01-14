@@ -32,9 +32,9 @@
                     <span class="badge bg-secondary ms-2">Free</span>
                 <?php endif; ?>
             </div>
-
-
+            <?php if($event['status'] == 'pending'): ?>
                 <a href="/user/events/register/<?= $event['id'] ?>" class="btn-edit">Register Now</a>
+            <?php endif; ?>
            
         </div>
     </section>

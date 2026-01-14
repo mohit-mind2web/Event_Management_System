@@ -5,24 +5,26 @@ namespace App\Controllers\User;
 use App\Controllers\BaseController;
 use App\Models\EventModel;
 use App\Models\EventRegistrationModel;
-use App\Models\PaymentModel;
 
 class EventRegistrationController extends BaseController
 {
     public function register($eventId)
     {
+        if (!auth()->loggedIn()) {
+            return redirect()->to('/login')->with('error', 'Please login to register for events.');
+        }
+
         $eventModel = new EventModel();
         $registrationModel = new EventRegistrationModel();
         
         $userId = auth()->user()->id;
         $event = $eventModel->find($eventId);
 
-        // check event is valid or not
+        // Validation Checks
         if (!$event) {
             return redirect()->back()->with('error', 'Event not found.');
         }
 
-        // chekck event is active or not 
         if ($event['status'] != 1) { 
              return redirect()->back()->with('error', 'This event is not active.');
         }
@@ -31,10 +33,15 @@ class EventRegistrationController extends BaseController
         if ($event['start_datetime'] < $currentDate) {
              return redirect()->back()->with('error', 'Event has already started or finished.');
         }
+
         $existingReg = $registrationModel->where('event_id', $eventId)
                                          ->where('user_id', $userId)
                                          ->first();
         if ($existingReg) {
+            // If paid event and incomplete payment, allow them to proceed to summary (which handles payment)
+            if ($event['is_paid'] && $existingReg['payment_status'] != 'paid') {
+                 return redirect()->to('/user/events/summary/' . $eventId);
+            }
             return redirect()->back()->with('message', 'You are already registered for this event.');
         }
 
@@ -43,75 +50,74 @@ class EventRegistrationController extends BaseController
              return redirect()->back()->with('error', 'Event is fully booked.');
         }
 
-        // Payment
-        if ($event['is_paid']) {
-             return redirect()->to('/user/events/payment/' . $eventId);
-        } else {
-             $data = [
-                 'event_id' => $eventId,
-                 'user_id' => $userId,
-                 'registration_date' => date('Y-m-d H:i:s'),
-                 'status' => 'confirmed',
-                 'payment_status' => 'free'
-             ];
-             
-             $registrationModel->save($data);
-             return redirect()->back()->with('message', 'Successfully registered for ' . $event['title']);
-        }
+        // Redirect ALL to Summary Page
+        return redirect()->to('/user/events/summary/' . $eventId);
     }
 
-    public function payment($eventId)
+    public function summary($eventId)
     {
         $eventModel = new EventModel();
         $event = $eventModel->find($eventId);
-        
-        if (!$event || !$event['is_paid']) {
-            return redirect()->to('/user/events');
+
+        if (!$event) {
+            return redirect()->to('/user/events')->with('error', 'Event not found.');
         }
 
-        return view('user/payment_page', ['event' => $event]);
+        // Re-check registration to avoid double dipping if they just refreshed
+        $registrationModel = new EventRegistrationModel();
+        $existingReg = $registrationModel->where('event_id', $eventId)
+                                         ->where('user_id', auth()->user()->id)
+                                         ->first();
+
+        // If it's a paid event and they are already registered but unpaid, we still show summary to let them pay.
+        // If free and registered, kick them out.
+        if ($existingReg && (!$event['is_paid'] || $existingReg['payment_status'] == 'paid')) {
+             return redirect()->to('/user/events')->with('message', 'You are already registered.');
+        }
+
+        return view('user/registration_summary', ['event' => $event]);
     }
 
-    public function processPayment()
+    public function confirm()
     {
-        $eventModel = new EventModel();
-        $registrationModel = new EventRegistrationModel();
-        $paymentModel = new PaymentModel();
-
         $eventId = $this->request->getPost('event_id');
         $userId = auth()->user()->id;
-        $amount = $this->request->getPost('amount');
-        
-        // Mock Payment Processing
-        $transactionId = 'TXN_' . strtoupper(uniqid());
-        $status = 'success'; // Assume success for now
 
-        // 1. Create Registration Check (Re-verify capacity to be safe)
+        $eventModel = new EventModel();
         $event = $eventModel->find($eventId);
-        // ... (can add re-validation here)
 
-        $regData = [
-             'event_id' => $eventId,
-             'user_id' => $userId,
-             'registration_date' => date('Y-m-d H:i:s'),
-             'status' => 'confirmed',
-             'payment_status' => 'paid'
-         ];
-         $registrationModel->save($regData);
-         $registrationId = $registrationModel->getInsertID();
+        if (!$event) {
+            return redirect()->back()->with('error', 'Event not found.');
+        }
 
-         // 2. Create Payment Record
-         $payData = [
-             'user_id' => $userId,
-             'event_id' => $eventId,
-             'registration_id' => $registrationId,
-             'amount' => $amount,
-             'transaction_id' => $transactionId,
-             'payment_date' => date('Y-m-d H:i:s'),
-             'status' => $status
-         ];
-         $paymentModel->save($payData);
+        // Double check paid status - this method is ONLY for free events
+        if ($event['is_paid']) {
+            return redirect()->back()->with('error', 'Invalid operation for paid event.');
+        }
 
-         return redirect()->to('/user/registrations')->with('message', 'Payment successful! Registration confirmed.');
+        $registrationModel = new EventRegistrationModel();
+        
+        // Final check on duplicates
+        $existingReg = $registrationModel->where('event_id', $eventId)
+                                         ->where('user_id', $userId)
+                                         ->first();
+        if ($existingReg) {
+            return redirect()->to('/user/registrations')->with('message', 'Already registered.');
+        }
+
+        $data = [
+            'event_id' => $eventId,
+            'user_id' => $userId,
+            'registration_date' => date('Y-m-d H:i:s'),
+            'status' => 'confirmed',
+            'payment_status' => 'free',
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+        
+        if ($registrationModel->insert($data)) {
+            return redirect()->to('/user/registrations')->with('message', 'Successfully registered for ' . $event['title']);
+        } else {
+            return redirect()->back()->with('error', 'Registration failed. Please try again.');
+        }
     }
 }

@@ -47,9 +47,17 @@ $routes->group('organizer', ['filter' => 'group:organizer'], function($routes) {
 $routes->group('user', ['filter' => 'group:user'], function($routes) {
     $routes->get('events', 'User\EventsController::index');
     $routes->get('events/view/(:num)', 'User\EventdetailController::view/$1');
+    
+    // Registration & Payment Routes
     $routes->get('events/register/(:num)', 'User\EventRegistrationController::register/$1');
-    $routes->get('events/payment/(:num)', 'User\EventRegistrationController::payment/$1');
-    $routes->post('events/process-payment', 'User\EventRegistrationController::processPayment');
+    $routes->get('events/summary/(:num)', 'User\EventRegistrationController::summary/$1');
+    $routes->post('events/confirm', 'User\EventRegistrationController::confirm');
+    $routes->get('ticket/(:num)', 'User\TicketController::index/$1');
+    
+    $routes->post('payment/checkout', 'User\PaymentController::checkout');
+    $routes->get('payment/success', 'User\PaymentController::success');
+    $routes->get('payment/cancel', 'User\PaymentController::cancel');
+
     $routes->get('registrations', 'User\MyRegistrationsController::index');
 });
 

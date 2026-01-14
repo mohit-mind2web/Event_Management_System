@@ -52,7 +52,7 @@
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="7" style="text-align:center;">No Recent event requests found.</td>
+                        <td colspan="8" style="text-align:center;">No Recent event requests found.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>

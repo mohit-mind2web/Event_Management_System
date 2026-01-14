@@ -54,8 +54,16 @@
                                 <div class="event-actions">
                                     <a href="/user/events/view/<?= $events['id'] ?>" class="btn btn-outline-primary btn-sm">View Details</a>
                                     
-                                    <?php if (in_array($events['id'], $registeredEventIds ?? [])): ?>
-                                        <button class="btn btn-secondary btn-sm" disabled>Registered</button>
+                                    <?php 
+                                    $userReg = $userRegistrations[$events['id']] ?? null;
+                                    ?>
+
+                                    <?php if ($userReg): ?>
+                                        <?php if ($events['is_paid'] && $userReg['payment_status'] != 'paid'): ?>
+                                            <a href="/user/payment/summary/<?= $events['id'] ?>" class="btn btn-warning btn-sm">Complete Payment</a>
+                                        <?php else: ?>
+                                            <button class="btn btn-secondary btn-sm" disabled>Registered</button>
+                                        <?php endif; ?>
                                     <?php else: ?>
                                         <a href="/user/events/register/<?= $events['id'] ?>" class="btn btn-primary btn-sm">Register Now</a>
                                     <?php endif; ?>

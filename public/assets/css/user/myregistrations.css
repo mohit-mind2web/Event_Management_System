@@ -53,4 +53,14 @@
 .reg-details p strong{
   margin-top: 10px;
 }
+.reg-details a{
+    padding: 8px 12px;
+  background-color: #2563EB;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
 
