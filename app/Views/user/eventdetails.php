@@ -1,5 +1,4 @@
-<?= $this->include('partials/header') ?>
-<?= $this->include('partials/sidebar') ?>
+<?= $this->include('partials/userheader') ?>
 
 <head>
     <meta charset="UTF-8">

@@ -1,5 +1,4 @@
-<?= $this->include('partials/header') ?>
-<?= $this->include('partials/sidebar') ?>
+<?= $this->include('partials/userheader') ?>
 
 <head>
     <link rel="stylesheet" href="/assets/css/user/events.css">
@@ -60,7 +59,7 @@
 
                                     <?php if ($userReg): ?>
                                         <?php if ($events['is_paid'] && $userReg['payment_status'] != 'paid'): ?>
-                                            <a href="/user/payment/summary/<?= $events['id'] ?>" class="btn btn-warning btn-sm">Complete Payment</a>
+                                            <a href="/user/events/register/<?= $events['id'] ?>" class="btn btn-warning btn-sm">Complete Payment !</a>
                                         <?php else: ?>
                                             <button class="btn btn-secondary btn-sm" disabled>Registered</button>
                                         <?php endif; ?>

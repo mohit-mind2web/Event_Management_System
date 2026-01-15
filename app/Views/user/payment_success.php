@@ -1,5 +1,4 @@
-<?= $this->include('partials/header') ?>
-<?= $this->include('partials/sidebar') ?>
+<?= $this->include('partials/userheader') ?>
 <head>
     <title>Payment Success - Event Management System</title>
     <link rel="stylesheet" href="/assets/css/user/paymentsuccess.css"> 

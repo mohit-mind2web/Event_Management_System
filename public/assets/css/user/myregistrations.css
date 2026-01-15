@@ -11,10 +11,18 @@
   margin-top: 20px;
   gap: 20px;
 }
+.registration-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.registrations-container h2 {
+  color: #4f4f4f;
+
+}
 
 .event-thumb {
-  width: 150px;
-  height: 100px;
+  width: 248px;
+  height: 140px;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -30,7 +38,7 @@
 .reg-header h3 {
   margin: 0;
   font-size: 1.1rem;
-  color: #333;
+   color: #4f4f4f;
 }
 .status-badge {
   padding: 4px 8px;
@@ -61,6 +69,10 @@
   text-decoration: none;
   font-size: 14px;
 
+}
+.reg-description{
+      display: grid;
+    gap: 8px
 }
 
 

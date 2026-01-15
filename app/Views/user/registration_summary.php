@@ -1,5 +1,4 @@
-<?= $this->include('partials/header') ?>
-<?= $this->include('partials/sidebar') ?>
+<?= $this->include('partials/userheader') ?>
 <head>
     <title>Registration Summary - Event Management System</title>
     <link rel="stylesheet" href="/assets/css/user/registrationsummary.css">
@@ -58,7 +57,11 @@
                                         <div>
                                         <a href="/user/events" class="btn btn-default cancel">Cancel</a>
                                         <button type="submit" class="btn btn-success btn-lg confirm">
+                                            <?php if($event['registration_status'] == 'pending' && $event['payment_status'] !='paid'): ?>
+                                                <i class="fas fa-credit-card"></i> Pay Now
+                                            <?php else: ?>
                                             <i class="fas fa-credit-card"></i> Pay & Register
+                                            <?php endif; ?>
                                         </button>
                                         </div>
                                     </form>

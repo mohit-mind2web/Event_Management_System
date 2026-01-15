@@ -57,7 +57,12 @@ class EventRegistrationController extends BaseController
     public function summary($eventId)
     {
         $eventModel = new EventModel();
-        $event = $eventModel->find($eventId);
+        $userId = auth()->user()->id;
+        $event = $eventModel->select('events.*,event_registrations.payment_status as payment_status,
+                                        event_registrations.status as registration_status')
+                            ->join('event_registrations', 'events.id = event_registrations.event_id AND event_registrations.user_id = ' . $userId, 'left')
+                            ->where('events.id', $eventId)
+                            ->first();
 
         if (!$event) {
             return redirect()->to('/user/events')->with('error', 'Event not found.');

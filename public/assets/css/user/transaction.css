@@ -1,0 +1,56 @@
+section h2 {
+  color: #4f4f4f;
+  font-size: 22px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #f8f9fa;
+}
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.status-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.status-failed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.btn-view-receipt {
+  background-color: #2563eb;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.btn-view-receipt:hover{
+    background-color:  #3468d8;
+}
+.btn-retry-payment {
+  background: #f59e0b;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+/* #8898aa;
+color: #525f7f; */

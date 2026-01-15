@@ -73,3 +73,82 @@ th {
   background-color: #dc3545;
     color: white;
 }
+.badge-upcoming {
+  background-color: #2563EB;
+    color: white;
+}
+.badge-completed {
+  background-color: #6c757d;
+    color: white;
+}
+.back-reg{
+  display: flex;
+  justify-content: end;
+}
+.back-button{
+      padding: 8px 10px;
+    background: #f7f7f7;
+    color: #454545;
+    text-decoration: none;
+    border-radius: 6px;
+}
+.back-button:hover{
+    background-color: #e9e9e9;
+} 
+.detail-page{
+  margin-top: 10px;
+}
+.detail-page h2{
+  color: #4f4f4f;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.detail-page p{
+  margin-top: 5px;
+}
+.detail-page strong{
+  color:#5e6370
+}
+.detail-page p{
+  color:#5e6874;
+}
+.btn-view-details{
+  padding: 5px 10px;
+  background-color: #2563EB;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.badge-close{
+  background-color: rgb(179, 37, 37);
+  color: white;
+}
+.btn-view-receipt {
+  background-color: #2563eb;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.btn-view-receipt:hover{
+    background-color:  #3468d8;
+}
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.status-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.status-failed {
+  background-color: #f8d7da;
+  color: #721c24;
+}

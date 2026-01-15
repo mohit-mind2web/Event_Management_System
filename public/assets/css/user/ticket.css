@@ -15,9 +15,9 @@
 }
 
 .ticket-title {
-    font-size: 2.5rem;
+    font-size: 28px;
     font-weight: bold;
-    color: #007bff;
+    color: #286073;
     text-transform: uppercase;
 }
 
@@ -36,4 +36,11 @@
 }
 .container-fluid{
     margin-top: 100px;
+}
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }

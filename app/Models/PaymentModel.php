@@ -8,6 +8,6 @@ class PaymentModel extends Model
 {
     protected $table            = 'payments';
     protected $primaryKey       = 'id';
-    protected $allowedFields    = ['user_id', 'event_id', 'registration_id', 'amount', 'transaction_id', 'payment_date', 'status', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['user_id', 'event_id', 'registration_id', 'amount', 'transaction_id', 'payment_date', 'status', 'created_at', 'updated_at', 'receipt_url', 'payment_method'];
     protected $useTimestamps = true;
 }

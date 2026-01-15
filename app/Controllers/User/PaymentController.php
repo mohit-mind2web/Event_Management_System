@@ -63,6 +63,7 @@ class PaymentController extends BaseController
         $domain = base_url();
 
         $checkout_session = Session::create([
+            'customer_email' => auth()->user()->email,
             'payment_method_types' => ['card'],
             'line_items' => [[
                 'price_data' => [
@@ -104,6 +105,19 @@ class PaymentController extends BaseController
                 $existingPayment = $paymentModel->where('transaction_id', $session->payment_intent)->first();
 
                 if (!$existingPayment) {
+                    // Fetch Payment Intent and Charge details
+                    $paymentIntent = \Stripe\PaymentIntent::retrieve($session->payment_intent);
+                    $charge = \Stripe\Charge::retrieve($paymentIntent->latest_charge);
+                    
+                    $receiptUrl = $charge->receipt_url;
+                    $paymentMethodType = $charge->payment_method_details->type;
+                    $paymentMethod = ucfirst($paymentMethodType);
+
+                    if ($paymentMethodType == 'card') {
+                         $brand = $charge->payment_method_details->card->brand ?? '';
+                         $paymentMethod = ucfirst($brand) . ' Card';
+                    }
+
                     // Update Registration
                     $registrationModel->update($registrationId, [
                         'status' => 'confirmed',
@@ -120,7 +134,9 @@ class PaymentController extends BaseController
                         'transaction_id' => $session->payment_intent,
                         'payment_date' => date('Y-m-d H:i:s'),
                         'status' => 'success',
-                        'created_at' => date('Y-m-d H:i:s')
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'receipt_url' => $receiptUrl,
+                        'payment_method' => $paymentMethod
                     ]);
                 }
 

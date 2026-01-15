@@ -93,3 +93,10 @@ text-decoration: none;
      border-radius: 6px;
      color: #817d7d;
 }
+.btn-warning{
+  background: #e86262;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+}

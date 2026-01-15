@@ -165,3 +165,16 @@ header .nav i{
 .auth:hover{
   background-color: #0b5ed7;
 }
+.nav-items ul{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-items ul li{
+  list-style: none;
+}
+.nav-items ul li a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}

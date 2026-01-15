@@ -1,6 +1,7 @@
 <?php
 
 use CodeIgniter\Router\RouteCollection;
+use CodeIgniter\Shield\Commands\User;
 
 /**
  * @var RouteCollection $routes
@@ -26,6 +27,9 @@ $routes->group('admin', ['filter' => 'group:admin,superadmin'], function($routes
     $routes->get('event-details/approve/(:num)', 'Admin\EventdetailsController::approve/$1');
     $routes->get('event-details/reject/(:num)', 'Admin\EventdetailsController::reject/$1');
     $routes->get('allevents', 'Admin\AlleventsController::index');
+    $routes->get('eventregistrations', 'Admin\EventRegistration::index');
+    $routes->get('eventregistrationdetails/(:num)','Admin\EventRegistration::eventregistrationdetails/$1');
+    $routes->get('paymentmonitoring','Admin\PaymentMonitorController::index');
     
     // Manage Categories Routes
     $routes->get('manage-categories', 'Admin\ManageCategoriesController::index');
@@ -59,6 +63,7 @@ $routes->group('user', ['filter' => 'group:user'], function($routes) {
     $routes->get('payment/cancel', 'User\PaymentController::cancel');
 
     $routes->get('registrations', 'User\MyRegistrationsController::index');
+    $routes->get('payments', 'User\TransactionsController::index');
 });
 
 $routes->post('api/events', 'Api\EventController::create');

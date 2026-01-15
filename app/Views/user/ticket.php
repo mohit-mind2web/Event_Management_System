@@ -16,6 +16,12 @@
                         </div>
                         
                         <div class="row ticket-info">
+                             <div class="col-md-6">
+                                <p><span class="ticket-label">Attendee:</span> <?= esc($user->full_name) ?></p>
+                                <p><span class="ticket-label">Email:</span> <?= esc($user->email) ?></p>
+                                <p><span class="ticket-label">Registration ID:</span> <?= esc($registration['id']) ?></p>
+                                <p><span class="ticket-label">Status:</span> <span class="badge badge-success"><?= strtoupper($registration['payment_status']) ?></span></p>
+                            </div>
                             <div class="col-md-6">
                                 <p><span class="ticket-label">Date:</span> 
                                     <?php 
@@ -26,12 +32,7 @@
                                 <p><span class="ticket-label">Time:</span> <?= date('h:i A', $start) ?></p>
                                 <p><span class="ticket-label">Location:</span> <?= esc($event['location']) ?></p>
                             </div>
-                            <div class="col-md-6">
-                                <p><span class="ticket-label">Attendee:</span> <?= esc($user->full_name) ?></p>
-                                <p><span class="ticket-label">Email:</span> <?= esc($user->email) ?></p>
-                                <p><span class="ticket-label">Registration ID:</span> <?= esc($registration['id']) ?></p>
-                                <p><span class="ticket-label">Status:</span> <span class="badge badge-success"><?= strtoupper($registration['payment_status']) ?></span></p>
-                            </div>
+                           
                         </div>
 
                         <div class="row mt-4">

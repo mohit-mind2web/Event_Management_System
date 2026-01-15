@@ -1,33 +1,8 @@
-<?= $this->include('partials/header') ?>
-<?= $this->include('partials/sidebar') ?>
+<?= $this->include('partials/userheader') ?>
 
 <head>
     <title>Payment Failed </title>
-    <style>
-        .failed-container {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .icon-failed {
-            color: #dc3545;
-            font-size: 5rem;
-            margin-bottom: 20px;
-        }
-        .btn-try-again {
-            background-color: #ffc107;
-            color: #212529;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-        .btn-try-again:hover {
-            background-color: #e0a800;
-            color: #212529;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/user/paymentfailed.css">
 </head>
 
 <main>
@@ -51,7 +26,7 @@
                                     </div>
                                 <?php endif; ?>
 
-                                <div class="mt-4">
+                                <div class="mt-4 failed-buttons">
                                     <?php if (isset($event_id)): ?>
                                         <a href="/user/events/summary/<?= esc($event_id) ?>" class="btn btn-try-again">
                                             <i class="fas fa-redo"></i> Try Again

@@ -1,5 +1,4 @@
-<?= $this->include('partials/header') ?>
-<?= $this->include('partials/sidebar') ?>
+<?= $this->include('partials/userheader') ?>
 
 <head>
     <link rel="stylesheet" href="/assets/css/user/myregistrations.css">
@@ -23,16 +22,18 @@
                         <div class="reg-details">
                             <div class="reg-header">
                                 <h3><?= esc($reg['event']['title'] ?? 'Event Deleted') ?></h3>
-                                <?php if($reg['payment_status']==='paid' || $reg['payment_status']==='free' && $reg['status']==='confirmed'): ?>
-                                 <a href="/user/ticket/<?= esc($reg['id']) ?>" class="btn btn-outline-primary my-registrations">
+                                <?php if ($reg['payment_status'] === 'paid' || $reg['payment_status'] === 'free' && $reg['status'] === 'confirmed'): ?>
+                                    <a href="/user/ticket/<?= esc($reg['id']) ?>" class="btn btn-outline-primary my-registrations">
                                         <i class="fas fa-ticket-alt"></i> View Ticket
                                     </a>
                                 <?php endif; ?>
                             </div>
-                                    <p><strong>Date:</strong> <?= date('d M Y, h:i A', strtotime($reg['event']['start_datetime'])) ?><br></p>
-                                    <p><strong>Registered On:</strong> <?= date('d M Y', strtotime($reg['registration_date'])) ?><br></p>
-                                    <p><strong>Payment:</strong> <?= ucfirst($reg['payment_status']) ?><br></p>
-                                    <p><strong>Status:</strong>  <span class="status-badge status-<?= $reg['status'] ?>"><?= ucfirst($reg['status']) ?></span></p>
+                            <div class="reg-description">
+                                <p><strong>Date:</strong> <?= date('d M Y, h:i A', strtotime($reg['event']['start_datetime'])) ?><br></p>
+                                <p><strong>Registered On:</strong> <?= date('d M Y', strtotime($reg['registration_date'])) ?><br></p>
+                                <p><strong>Payment:</strong> <?= ucfirst($reg['payment_status']) ?><br></p>
+                                <p><strong>Status:</strong> <span class="status-badge status-<?= $reg['status'] ?>"><?= ucfirst($reg['status']) ?></span></p>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
