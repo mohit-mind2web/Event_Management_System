@@ -1,16 +1,37 @@
-section h2 {
+.event-container h2 {
   color: #4f4f4f;
-  font-size: 22px;
+  font-size: 24px;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
+
+.event-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #4f46e5, #818cf8);
+  border-radius: 2px;
+}
+
+.event-container {
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px 0;
 }
+
 .card {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s;
@@ -18,14 +39,17 @@ section h2 {
   flex-direction: column;
   position: relative;
 }
+
 .card:hover {
   transform: translateY(-5px);
 }
+
 .card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
 }
+
 .event-body {
   padding: 15px;
   flex-grow: 1;
@@ -33,16 +57,25 @@ section h2 {
   flex-direction: column;
   gap: 8px;
 }
+
 .event-body h3 {
   margin: 0 0 5px 0;
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 20px;
+  color: #4f4f4f;
 }
+
 .event-body p {
-  margin: 0;
-  color: #666;
-  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
+
+.event-body strong {
+  color: #534d4d;
+  font-weight: 600;
+}
+
 .badge {
   display: inline-block;
   padding: 5px 10px;
@@ -51,52 +84,157 @@ section h2 {
   width: fit-content;
   margin-top: auto;
 }
+
 .paid {
   position: absolute;
   top: 10px;
   right: 10px;
 }
+
 .paid-badge {
   background-color: #e8f5e9;
   color: #2e7d32;
 }
+
 .free-badge {
   background-color: #e3f2fd;
   color: #1565c0;
 }
+
 .event-actions {
   margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .btn-primary {
   padding: 8px 10px;
   border-radius: 6px;
-  background-color:#2563EB;
-   border: 1px solid #2563EB;
+  background-color: #2563EB;
+  border: 1px solid #2563EB;
   color: white;
-    text-decoration: none;
-}    
+  text-decoration: none;
+}
+
 .btn-outline-primary {
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #2563EB;
   color: #2563EB;
-text-decoration: none;
-} 
-.btn-secondary{
-    background:#e9e9e9;
-    cursor:not-allowed;
-    padding: 8px 10px;
-     border: 1px solid #ddd;
-     border-radius: 6px;
-     color: #817d7d;
+  text-decoration: none;
 }
-.btn-warning{
+
+.btn-secondary {
+  background: #e9e9e9;
+  cursor: not-allowed;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #817d7d;
+}
+
+.btn-warning {
   background: #e86262;
-    padding: 8px 10px;
-    border-radius: 6px;
-    color: white;
-    text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Filter Styles */
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter-group.start {
+  flex-grow: 1;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9aa0ac;
+  font-size: 14px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #4f4f4f;
+  background-color: transparent;
+}
+
+.search-box input:focus {
+  border-color: #2563eb;
+}
+
+.filter-select {
+  padding: 10px 35px 10px 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4f4f4f;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: #2563eb;
+}
+
+.alert-message {
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.alert-message.success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #d1fae5;
+}
+
+.alert-message.error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fee2e2;
+}
+
+.btn-reset-filters{
+  background-color: #991b1b;
+  color: white;
+  padding:10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
 }

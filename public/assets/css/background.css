@@ -1,0 +1,54 @@
+.bg-image {
+    background-image: url("https://demo.ovathemewp.com/em4u/wp-content/themes/em4u/assets/img/bg_heading-compressor.jpg");
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    top: 67px;
+}
+
+.bg-color {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.bg-title {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #fff;
+    line-height: 80px;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.row ul {
+    background-color: transparent;
+    color: #fff;
+    padding-left: 0;
+}
+
+.row ul li {
+    display: inline-block;
+}
+
+.row ul li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+}

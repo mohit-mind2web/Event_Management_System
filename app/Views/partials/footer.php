@@ -1,7 +1,6 @@
 
-<head>
     <link rel="stylesheet" href="/assets/css/footer.css" />
-</head>
+
 <footer>
     <div class="footer-container">
         <div class="footer-left">
@@ -27,3 +26,5 @@
         <p>&copy; <?= date('Y') ?> Eventease. All Rights Reserved.</p>
     </div>
 </footer>
+</body>
+</html>

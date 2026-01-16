@@ -1,6 +1,7 @@
 <?= $this->include('partials/userheader') ?>
 
 <head>
+    <link rel="stylesheet" href="/assets/css/user/events.css"> <!-- Reusing filter styles -->
     <link rel="stylesheet" href="/assets/css/user/myregistrations.css">
 </head>
 
@@ -10,36 +11,39 @@
             <h2>My Registrations</h2>
 
             <?php if (session()->getFlashdata('message')): ?>
-                <div style="background:#d4edda; color:#155724; padding:10px; border-radius:4px; margin-bottom:15px;">
+                <div class="alert-message success">
                     <?= session()->getFlashdata('message') ?>
                 </div>
             <?php endif; ?>
 
-            <?php if (!empty($registrations)): ?>
-                <?php foreach ($registrations as $reg): ?>
-                    <div class="registration-item">
-                        <img src="/<?= esc($reg['event']['banner_image'] ?? 'assets/images/default-event.png') ?>" alt="Event" class="event-thumb">
-                        <div class="reg-details">
-                            <div class="reg-header">
-                                <h3><?= esc($reg['event']['title'] ?? 'Event Deleted') ?></h3>
-                                <?php if ($reg['payment_status'] === 'paid' || $reg['payment_status'] === 'free' && $reg['status'] === 'confirmed'): ?>
-                                    <a href="/user/ticket/<?= esc($reg['id']) ?>" class="btn btn-outline-primary my-registrations">
-                                        <i class="fas fa-ticket-alt"></i> View Ticket
-                                    </a>
-                                <?php endif; ?>
-                            </div>
-                            <div class="reg-description">
-                                <p><strong>Date:</strong> <?= date('d M Y, h:i A', strtotime($reg['event']['start_datetime'])) ?><br></p>
-                                <p><strong>Registered On:</strong> <?= date('d M Y', strtotime($reg['registration_date'])) ?><br></p>
-                                <p><strong>Payment:</strong> <?= ucfirst($reg['payment_status']) ?><br></p>
-                                <p><strong>Status:</strong> <span class="status-badge status-<?= $reg['status'] ?>"><?= ucfirst($reg['status']) ?></span></p>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>You haven't registered for any events yet.</p>
-            <?php endif; ?>
+            <!-- Filter Section -->
+            <div class="filters-container">
+                <div class="filter-group start">
+                    <!-- Placeholder or Search if needed, for now just spacing -->
+                </div>
+                <div class="filter-group end">
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="pending">Pending</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <select id="paymentFilter" class="filter-select">
+                        <option value="">All Payments</option>
+                        <option value="paid">Paid</option>
+                        <option value="free">Free</option>
+                    </select>
+                    <button id="resetFilters" class="btn-reset-filters" title="Reset Filters">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <div id="registrations-wrapper">
+                <?= $this->include('user/partials/registrations_list') ?>
+            </div>
         </div>
     </section>
 </main>
+
+<script src="/assets/js/user/my_registrations.js"></script>

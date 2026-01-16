@@ -32,7 +32,7 @@
                             <td><?= $payment['transaction_id'] ?></td>
                             <td><?= esc($payment['name']) ?></td>
                             <td><?= esc($payment['titlename']) ?></td>
-                            <td><?= number_format($payment['amount']) ?></td>
+                            <td>₹<?= number_format($payment['amount']) ?></td>
                            <td><?= esc($payment['payment_method'] ?? 'N/A') ?></td>
                             <td>
                                  <?php

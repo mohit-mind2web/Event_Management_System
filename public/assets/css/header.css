@@ -175,6 +175,9 @@ header .nav i{
 }
 .nav-items ul li a{
   text-decoration: none;
-  color: white;
+  color:#dcdcdc;
   font-weight: bold;
+  display: flex;
+  gap: 5px;
+  
 }

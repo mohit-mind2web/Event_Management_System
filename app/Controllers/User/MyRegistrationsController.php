@@ -12,17 +12,39 @@ class MyRegistrationsController extends BaseController
     {
         $registrationModel = new EventRegistrationModel();
         $userId = auth()->user()->id;
+        $eventModel = new EventModel();
+
+        $query = $registrationModel->where('user_id', $userId);
+
+        // Filter: Status
+        $status = $this->request->getGet('status');
+        if (!empty($status)) {
+            $query->where('status', $status);
+        }
+
+        // Filter: Payment Status
+        $paymentStatus = $this->request->getGet('payment_status');
+        if (!empty($paymentStatus)) {
+            $query->where('payment_status', $paymentStatus);
+        }
 
         // Fetch user's registrations along with event details
-        $registrations = $registrationModel->where('user_id', $userId)
-                                           ->orderBy('created_at', 'DESC')
-                                           ->findAll();
+        $registrations = $query->orderBy('created_at', 'DESC')->paginate(10);
+        $pager = $registrationModel->pager;
 
-        $eventModel = new EventModel();
         foreach ($registrations as &$reg) {
             $reg['event'] = $eventModel->find($reg['event_id']);
         }
 
-        return view('user/my_registrations', ['registrations' => $registrations]);
+        $data = [
+            'registrations' => $registrations,
+            'pager' => $pager
+        ];
+
+        if ($this->request->isAJAX()) {
+            return view('user/partials/registrations_list', $data);
+        }
+
+        return view('user/my_registrations', $data);
     }
 }

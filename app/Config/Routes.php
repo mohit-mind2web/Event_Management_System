@@ -49,6 +49,7 @@ $routes->group('organizer', ['filter' => 'group:organizer'], function($routes) {
 
 
 $routes->group('user', ['filter' => 'group:user'], function($routes) {
+    $routes->get('home','User\HomeController::index');
     $routes->get('events', 'User\EventsController::index');
     $routes->get('events/view/(:num)', 'User\EventdetailController::view/$1');
     

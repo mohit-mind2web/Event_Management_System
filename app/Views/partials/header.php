@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <a href="/user/matches">
+            <a href="/user/home">
                 <h1>Event<span>ease</span></h1>
             </a>
         </div>
