@@ -52,7 +52,7 @@ class EventsController extends BaseController
         }
 
         // Execute query
-        $eventdetails = $query->orderBy('start_datetime', 'ASC')->paginate(9);
+        $eventdetails = $query->orderBy('start_datetime', 'DESC')->paginate(6);
         $pager = $events->pager;
         
         // Fetch Categories for Filter

@@ -3,9 +3,57 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Controllers\User\EventRegistrationController;
 use App\Models\EventModel;
+use App\Libraries\CsvExporter;
 use App\Models\EventRegistrationModel;
 
 class EventRegistration extends BaseController{
+    // ... index method ...
+
+    // ... eventregistrationdetails method ...
+
+    public function export($id) {
+        $eventuserModel=new EventRegistrationModel();
+        $eventModel = new EventModel();
+        $event = $eventModel->find($id);
+        
+        if (!$event) {
+            return redirect()->back();
+        }
+        
+        $search = $this->request->getGet('search');
+        
+        $query = $eventuserModel->select('event_registrations.*,users.full_name,auth_identities.secret as email')
+                    ->join('users','event_registrations.user_id=users.id','left')
+                    ->join('auth_identities','users.id=auth_identities.user_id','left')
+                    ->where('event_registrations.event_id',$id);
+                    
+        if ($search) {
+             $query->groupStart()
+                   ->like('users.full_name', $search)
+                   ->orLike('auth_identities.secret', $search)
+                   ->groupEnd();
+        }
+        
+        $registrations = $query->findAll();
+        
+        $filename = 'admin_registrations_' . preg_replace('/[^a-z0-9]+/', '_', strtolower($event['title'])) . '_' . date('Ymd') . '.csv';
+        
+        $exporter = new CsvExporter();
+        $headers = ['Registration ID','Full Name', 'Email', 'Status', 'Payment Status', 'Registration Date', 'Checked In'];
+        
+        $exporter->export($filename, $headers, $registrations, function($reg) {
+            return [
+                $reg['id'],
+                $reg['full_name'],
+                $reg['email'],
+                $reg['status'],
+                $reg['payment_status'],
+                $reg['created_at'],
+                $reg['check_in'] ? 'Yes (' . $reg['checked_in_at'] . ')' : 'No'
+            ];
+        });
+    }
+
     public function index(){
         $eventModel=new EventModel();
         $registrations=$eventModel->select('events.*,Count(event_registrations.id) as total_registrations,users.full_name as organizer_name,
@@ -26,16 +74,29 @@ class EventRegistration extends BaseController{
         
         $event = $eventModel->find($id);
 
-        $registrationusers=$eventuserModel->select('event_registrations.*,users.full_name,auth_identities.secret as email')
+        $search = $this->request->getGet('search');
+
+        $query = $eventuserModel->select('event_registrations.*,users.full_name,auth_identities.secret as email')
                     ->join('users','event_registrations.user_id=users.id','left')
                     ->join('auth_identities','users.id=auth_identities.user_id','left')
-                    ->where('event_registrations.event_id',$id)
-                    ->findAll();
+                    ->where('event_registrations.event_id',$id);
+        
+        if ($search) {
+             $query->groupStart()
+                   ->like('users.full_name', $search)
+                   ->orLike('auth_identities.secret', $search)
+                   ->groupEnd();
+        }
+
+        $registrationusers = $query->paginate(20);
 
         return view('admin/registrationdetailpage',[
-            'userregistrations'=>$registrationusers,
+            'userregistrations' => $registrationusers,
+            'pager' => $eventuserModel->pager,
             'title' => $event['title'] ?? '',
-            'start_datetime' => $event['start_datetime'] ?? ''
+            'start_datetime' => $event['start_datetime'] ?? '',
+            'end_datetime' => $event['end_datetime'] ?? '',
+            'search' => $search
         ]);
     }
 }

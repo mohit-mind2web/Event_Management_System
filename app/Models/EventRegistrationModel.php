@@ -8,6 +8,6 @@ class EventRegistrationModel extends Model
 {
     protected $table            = 'event_registrations';
     protected $primaryKey       = 'id';
-    protected $allowedFields    = ['event_id', 'user_id', 'registration_date', 'status', 'payment_status', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['event_id', 'user_id', 'registration_date', 'status', 'payment_status', 'check_in', 'checked_in_at', 'created_at', 'updated_at'];
     protected $useTimestamps = true;
 }

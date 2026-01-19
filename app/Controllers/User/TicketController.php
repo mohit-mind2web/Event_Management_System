@@ -26,6 +26,12 @@ class TicketController extends BaseController
             return redirect()->to('/user/events')->with('error', 'Unauthorized access to ticket.');
         }
 
+        // Access Control: Ensure payment is completed
+        if ($registration['payment_status'] !== 'paid' && $registration['payment_status'] !== 'free') {
+             return redirect()->to('/user/events/summary/' . $registration['event_id'])
+                            ->with('error', 'Please complete payment to view your ticket.');
+        }
+
         $eventModel = new EventModel();
         $event = $eventModel->find($registration['event_id']);
 

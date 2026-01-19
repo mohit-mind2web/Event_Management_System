@@ -162,6 +162,21 @@ class PaymentController extends BaseController
     public function cancel()
     {
         $eventId = $this->request->getGet('event_id');
+        
+        if (!$eventId) {
+            return redirect()->to('/user/events');
+        }
+
+        $registrationModel = new EventRegistrationModel();
+        // Verify the user actually has a registration for this event
+        $existingReg = $registrationModel->where('event_id', $eventId)
+                                         ->where('user_id', auth()->user()->id)
+                                         ->first();
+
+        if (!$existingReg) {
+             return redirect()->to('/user/events')->with('error', 'Invalid request.');
+        }
+
         return view('user/payment_failed', [
             'event_id' => $eventId,
             'error_message' => 'Payment was cancelled by the user.'

@@ -29,6 +29,7 @@ $routes->group('admin', ['filter' => 'group:admin,superadmin'], function($routes
     $routes->get('allevents', 'Admin\AlleventsController::index');
     $routes->get('eventregistrations', 'Admin\EventRegistration::index');
     $routes->get('eventregistrationdetails/(:num)','Admin\EventRegistration::eventregistrationdetails/$1');
+    $routes->get('eventregistrationdetails/(:num)/export', 'Admin\EventRegistration::export/$1');
     $routes->get('paymentmonitoring','Admin\PaymentMonitorController::index');
     
     // Manage Categories Routes
@@ -45,6 +46,16 @@ $routes->group('organizer', ['filter' => 'group:organizer'], function($routes) {
     $routes->get('myevents', 'Organizer\MyEventsController::index');
     $routes->get('events/view/(:num)', 'Organizer\EventDetailsController::view/$1');
     $routes->get('events/edit/(:num)', 'Organizer\EventDetailsController::edit/$1');
+    $routes->get('eventregistrations', 'Organizer\EventRegistrationController::index');
+    $routes->get('eventregistrationdetails/(:num)', 'Organizer\EventRegistrationController::eventregistrationdetails/$1');
+    $routes->get('eventregistrationdetails/(:num)/export', 'Organizer\EventRegistrationController::exportEventRegistrations/$1');
+    $routes->get('profile/(:num)','Organizer\ProfileController::index/$1');
+    $routes->post('profile/update/(:num)','Organizer\ProfileController::update/$1');
+    
+    // QR Code Check-in Routes
+    $routes->get('scan-ticket', 'Organizer\EventRegistrationController::scan');
+    $routes->post('check-in', 'Organizer\EventRegistrationController::processCheckIn');
+
 });
 
 
@@ -65,6 +76,8 @@ $routes->group('user', ['filter' => 'group:user'], function($routes) {
 
     $routes->get('registrations', 'User\MyRegistrationsController::index');
     $routes->get('payments', 'User\TransactionsController::index');
+    $routes->get('profile/(:num)', 'User\ProfileController::index/$1');
+    $routes->post('profile/update/(:num)', 'User\ProfileController::update/$1');
 });
 
 $routes->post('api/events', 'Api\EventController::create');

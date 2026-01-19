@@ -37,10 +37,31 @@
 
                         <div class="row mt-4">
                             <div class="col-12 text-center">
+                                <div id="qrcode" style="display: flex; justify-content: center; margin: 20px 0;"></div>
+                                <small class="text-muted">Scan this QR code at the entrance for check-in.</small>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12 text-center">
                                 <small class="text-muted">Please present this ticket at the event entrance.</small>
                             </div>
                         </div>
                     </div>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+                    <script type="text/javascript">
+                        var registrationData = JSON.stringify({
+                            registration_id: "<?= $registration['id'] ?>",
+                            event_id: "<?= $event['id'] ?>"
+                        });
+                        
+                        new QRCode(document.getElementById("qrcode"), {
+                            text: registrationData,
+                            width: 128,
+                            height: 128
+                        });
+                    </script>
 
                     <div class="text-center print-btn no-print mb-4">
                         <button onclick="window.print()" class="btn btn-primary btn-lg">

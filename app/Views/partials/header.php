@@ -25,16 +25,14 @@
             
             <div class="profile">
                 <nav>
-                    <?php if (auth()->user()->inGroup('user')): ?>
+                    <?php if (auth()->user()->inGroup('admin')): ?>
                         <ul>
-                            <li><a href="/user/profileview?id">Your Profile</a></li>
-                            <li> <a href="/user/profileedit">Edit Profile</a></li>
-                            <li><a href="/user/contactsupport">Get Help</a></li>
+                            <li><a href="/admin/queries">View Queries</a></li>
                             <li><a href="/logout">Logout</a></li>
                         </ul>
                     <?php else: ?>
                         <ul>
-                            <li><a href="/admin/managequeries">View Queries</a></li>
+                            <li><a href="/organizer/profile/<?= auth()->user()->id ?>">View Profile</a></li>
                             <li><a href="/logout">Logout</a></li>
                         </ul>
                     <?php endif; ?>

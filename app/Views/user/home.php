@@ -93,7 +93,7 @@
     <!-- News Section -->
     <section class="news-section">
         <div class="container-custom">
-            <h2 class="section-title">Latest News</h2>
+            <h2 class="section-title">Blogs</h2>
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-image placeholder-bg"></div>
@@ -131,15 +131,16 @@
         <div class="container-full">
             <div class="about-content">
                 <h2>About <span class="highlight">Events</span></h2>
-                <p>
+                
+                <div class="about-image-container">
+                    <!-- Placeholder for the uploaded image or generic one -->
+                     <img src="/assets/images/about-events.png" alt="About Events" class="about-img">
+                     <p>
                     From intimate workshops to large-scale conferences, our platform brings people together. 
                     We believe in the power of connection and the impact of shared experiences. 
                     Whether you are an attendee looking for inspiration or an organizer creating memories, 
                     we provide the tools and space to make it happen.
                 </p>
-                <div class="about-image-container">
-                    <!-- Placeholder for the uploaded image or generic one -->
-                     <img src="/assets/images/about-events.png" alt="About Events" class="about-img">
                 </div>
             </div>
         </div>
@@ -150,11 +151,21 @@
         <div class="container-custom">
             <h2 class="section-title">Our Partners</h2>
             <div class="partners-logos">
-                <div class="partner-logo">LOGO 1</div>
-                <div class="partner-logo">LOGO 2</div>
-                <div class="partner-logo">LOGO 3</div>
-                <div class="partner-logo">LOGO 4</div>
-                <div class="partner-logo">LOGO 5</div>
+                <div class="partner-logo">
+                    <img src="/assets/images/ey.png" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="/assets/images/kpmg.png" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="/assets/images/zoho.png" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="/assets/images/google.png" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="/assets/images/ey.png" alt="Partner Logo">
+                </div>
             </div>
         </div>
     </section>

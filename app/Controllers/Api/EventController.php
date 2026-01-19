@@ -112,6 +112,7 @@ class EventController extends ResourceController
         $endDatetime   = $this->request->getPost('end_datetime');
         
         $currentDate = date('Y-m-d H:i:s');
+        
         if ($startDatetime < $currentDate) {
              return $this->fail(['start_datetime' => 'Start date cannot be in the past.']);
         }

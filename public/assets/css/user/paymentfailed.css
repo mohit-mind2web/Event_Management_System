@@ -3,6 +3,7 @@
   padding: 50px 20px;
   display: grid;
   gap: 10px;
+  margin-top: 40px;
 }
 .icon-failed {
   color: #dc3545;

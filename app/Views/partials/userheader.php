@@ -37,8 +37,7 @@
             <div class="profile">
                 <nav>
                         <ul>
-                            <li><a href="/user/profileview?id">Your Profile</a></li>
-                            <li> <a href="/user/profileedit">Edit Profile</a></li>
+                            <li><a href="/user/profile/<?= auth()->user()->id ?>">Your Profile</a></li>
                             <li><a href="/user/contactsupport">Get Help</a></li>
                             <li><a href="/logout">Logout</a></li>
                         </ul>
@@ -64,6 +63,16 @@
             'title' => 'All Events',
             'link' => '/user/events'
         ];
+    } elseif (strpos($current_path, '/user/events/summary') !== false) {
+        $pageTitle = 'Event Registration';
+        $breadcrumbLink = $current_page;
+        $parentBreadcrumb = [
+            'title' => 'All Events',
+            'link' => '/user/events' 
+        ];
+    }  elseif (strpos($current_path, '/user/payment/cancel') !== false) {
+        $pageTitle = 'Payment Failed';
+        $breadcrumbLink = $current_page;
     } elseif (strpos($current_path, '/user/events') !== false) {
         $pageTitle = 'All Events';
         $breadcrumbLink = '/user/events';
@@ -78,7 +87,7 @@
         $breadcrumbLink = '/user/contact';
     } elseif (strpos($current_path, '/user/profile') !== false) {
         $pageTitle = 'User Profile';
-        $breadcrumbLink = '/user/profileview';
+        $breadcrumbLink = '/user/profile';
     }
     ?>
 

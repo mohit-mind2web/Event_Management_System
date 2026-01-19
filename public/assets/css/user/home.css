@@ -339,7 +339,6 @@ body {
 /* News Section */
 .news-section {
     padding: 80px 0;
-    background-color: var(--bg-light);
 }
 
 .news-grid {
@@ -407,15 +406,16 @@ body {
 }
 
 .container-full {
-    width: 100%;
+       width: 1250px;
     padding: 0 40px;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 /* About Events Section */
 .about-section {
     padding: 80px 0;
-    background-color: var(--white);
+    background-color: var(--bg-light);
     text-align: center;
 }
 
@@ -434,24 +434,25 @@ body {
     line-height: 1.8;
     color: var(--text-light);
     margin-bottom: 40px;
+    text-align: left;
 }
 
 .about-image-container {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 30px;
     border-radius: 12px;
     overflow: hidden;
 }
 
 .about-img {
-    width: 100%;
-    height: auto;
+    width:600px;
+    height: 450px;
     display: block;
 }
 
 /* Partners Section */
 .partners-section {
     padding: 60px 0;
-    background-color: var(--bg-light);
 }
 
 .partners-logos {
@@ -467,33 +468,15 @@ body {
     font-weight: 700;
     color: #ccc;
     padding: 10px 20px;
-    border: 2px dashed #e0e0e0;
+    border: 1px solid #ddd;
     border-radius: 8px;
     user-select: none;
 }
-
-/* Responsive */
-@media (max-width: 992px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.partner-logo img{
+    width: 200px;
+    height: 100px;
 }
 
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-}
-
-/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;

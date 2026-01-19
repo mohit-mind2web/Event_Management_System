@@ -6,69 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Events</title>
     <link href="/assets/css/organizer/myevents.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/pagination.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <main>
     <section class="my-events">
         <h2>My Events</h2>
 
+        <form action="" method="get" class="filters-container">
+            <div class="filter-group start">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="search" placeholder="Search events..." value="<?= esc($search) ?>">
+                </div>
+            </div>
+            
+            <div class="filter-group end">
+                 <select name="status" class="filter-select" onchange="this.form.submit()">
+                     <option value="">All Status</option>
+                     <option value="1" <?= $status == '1' ? 'selected' : '' ?>>Approved</option>
+                     <option value="0" <?= $status == '0' ? 'selected' : '' ?>>Pending</option>
+                     <option value="2" <?= $status == '2' ? 'selected' : '' ?>>Rejected</option>
+                 </select>
+                 
+                 <input type="text" name="date_range" class="filter-select datepicker-range" value="<?= esc($date_range ?? '') ?>" placeholder="Select Date Range">
+                 
+                 <a href="/organizer/myevents" class="btn-reset-filters"><i class="fas fa-undo"></i> Reset</a>
+            </div>
+        </form>
+
         <?php if (empty($events)): ?>
             <p>You haven't created any events yet.</p>
             <a href="/organizer/createevent" class="btn btn-primary">Create Your First Event</a>
         <?php else: ?>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>S.No</th>
-                        <th>Event Title</th>
-                        <th>Date</th>
-                        <th>Location</th>
-                        <th>Capacity</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($events as $index=> $event): ?>
-                        <tr>
-                            <td><?= $index + 1 ?></td>
-                            <td>
-                                <span><?= esc($event['title']) ?></span>
-                                <?php if ($event['is_paid']): ?>
-                                    <span class="badge bg-success">(Paid)</span>
-                                <?php endif; ?>
-                            </td>
-                            <td>
-                                <?= date('M d, Y h:i A', strtotime($event['start_datetime'])) ?>
-                            </td>
-                            <td><?= esc($event['location']) ?></td>
-                            <td><?= esc($event['capacity']) ?></td>
-                            <td>
-                                <?php
-                                $statusLabel = 'Pending';
-                                $statusClass = 'status-pending';
-                                if ($event['status'] == 1) {
-                                    $statusLabel = 'Approved';
-                                    $statusClass = 'status-active';
-                                } elseif ($event['status'] == 2) {
-                                    $statusLabel = 'Rejected';
-                                    $statusClass = 'status-inactive';
-                                }
-                                ?>
-                                <span class="status-badge <?= $statusClass ?>">
-                                    <?= $statusLabel ?>
-                                </span>
-                            </td>
-                            <td>
-                                <a href="/organizer/events/view/<?= $event['id'] ?>" class="btn-view"> View </a>
-                                <?php if ($event['status'] == 0 || $event['status'] == 2): ?>
-                                    <a href="/organizer/events/edit/<?= $event['id'] ?>"class="btn-edit"> Edit</a>
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div id="table-container">
+                <?= $this->include('organizer/partials/myevents_table') ?>
+            </div>
         <?php endif; ?>
     </section>
+    </section>
 </main>
+<script src="/assets/js/organizer/filter_pagination.js"></script>

@@ -89,7 +89,7 @@
                                             }
                                         ?>
                                     </td>
-                                    <td>0</td>
+                                    <td><?= esc($event['registrations_count']) ?></td>
                                     <td>
                                         <a class="view" href="/organizer/events/view/<?= $event['id'] ?>">View</a>
                                     </td>
@@ -129,7 +129,11 @@
                                     <td>
                                         <?php
                                             if ($event['status'] == 1) {
-                                                echo '<span style="color: green;">Approved</span>';
+                                                if(strtotime($event['start_datetime']) <= time() && strtotime($event['end_datetime']) >= time()) {
+                                                    echo '<span style="color: blue;">Ongoing</span>';
+                                                } else {
+                                                    echo '<span style="color: green;">Approved</span>';
+                                                }
                                             } elseif ($event['status'] == 0) {
                                                 echo '<span style="color: orange;">Pending</span>';
                                             } else {
@@ -139,7 +143,10 @@
                                     </td>
                                     <td>
                                         <a class="view" href="/organizer/events/view/<?= $event['id'] ?>">View</a>
+                                        <?php if($event['status']==0):?>
                                         <a class="edit" href="/organizer/events/edit/<?= $event['id'] ?>">Edit</a>
+                                        <?php endif;?>
+                                       
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

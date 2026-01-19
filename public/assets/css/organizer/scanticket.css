@@ -1,0 +1,98 @@
+.scan-container {
+    padding: 20px;
+}
+.scan h1{
+    font-size: 22px;
+    color: #4f4f4f;
+}
+.contentscan{
+    margin-top: 30px;
+}
+
+#reader {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+#reader__dashboard_section_csr span,
+#reader__dashboard_section_swaplink {
+    display: none !important;
+}
+
+#reader__dashboard_section_csr button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#reader__dashboard_section_csr button:hover {
+    background-color: #0056b3;
+}
+
+/* Result Message Styling */
+#result-message {
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+/* Scan Another Button */
+#reset-scan {
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+}
+
+#reset-scan:hover {
+    background-color: #5a6268;
+}
+
+.card-title-scan {
+    font-size: 17px;
+    margin-bottom: 20px;
+    color: #444040;
+}
+.html5-qrcode-element{
+    margin-top: 10px;
+    color: #007bff;
+}

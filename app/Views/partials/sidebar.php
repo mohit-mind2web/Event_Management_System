@@ -18,6 +18,7 @@
                 <li><a href="/organizer/createevent" class="<?= $current_page == '/organizer/createevent' ? 'active' : '' ?>"><i class="fas fa-users-cog"></i>Create Events</a></li>
                 <li><a href="/organizer/myevents" class="<?= $current_page == '/organizer/myevents' ? 'active' : '' ?>"><i class="fas fa-users-cog"></i>My Events</a></li>
                 <li><a href="/organizer/eventregistrations" class="<?= $current_page == '/organizer/eventregistrations' ? 'active' : '' ?>"> <i class="fas fa-flag"></i>Event Registrations</a></li>
+                <li><a href="/organizer/scan-ticket" class="<?= $current_page == '/organizer/scan-ticket' ? 'active' : '' ?>"> <i class="fas fa-qrcode"></i>Scan Ticket</a></li>
                 <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         <?php endif; ?>

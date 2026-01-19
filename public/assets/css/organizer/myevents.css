@@ -5,57 +5,153 @@
   border-radius: 8px;
   background: #fff;
 }
-.my-events h2{
- color: #4f4f4f;;
+
+.my-events h2 {
+  color: #4f4f4f;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
+
 th,
 td {
   text-align: left;
   padding: 12px;
   border-bottom: 1px solid #ddd;
 }
+
 th {
   background-color: #f8f9fa;
 }
-.badge{
-    font-size: 13px;
-    color:#2563EB;
+
+.badge {
+  font-size: 13px;
+  color: #2563EB;
 }
+
 .status-badge {
   padding: 5px 10px;
   border-radius: 12px;
   font-size: 12px;
   font-weight: bold;
 }
+
 .status-active {
   background-color: #d4edda;
   color: #155724;
 }
+
 .status-pending {
   background-color: #fff3cd;
   color: #856404;
 }
+
 .status-inactive {
   background-color: #f8d7da;
   color: #721c24;
 }
-.btn-view{
-    background-color: #2563EB;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin: 10px;
+
+.btn-view {
+  background-color: #2563EB;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 10px;
 }
-.btn-edit{
-      background: #f59e0b;
+
+.btn-edit {
+  background: #f59e0b;
   color: #fff;
-  padding: 5px 10px;        
-    border-radius: 8px;
-    text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-decoration: none;
 }
+
+/* Filter Styles */
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  /* Added background for better visibility */
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter-group.start {
+  flex-grow: 1;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9aa0ac;
+  font-size: 14px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #4f4f4f;
+  background-color: transparent;
+}
+
+.search-box input:focus {
+  border-color: #2563eb;
+}
+
+.filter-select {
+  padding: 10px 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4f4f4f;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: #2563eb;
+}
+
+.btn-reset-filters {
+  background-color: #991b1b;
+  color: white !important;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Pagination Styles - Managed via pagination.css */
