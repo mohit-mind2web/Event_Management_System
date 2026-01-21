@@ -97,3 +97,16 @@
   font-size: 17px;
   color:#6c6a6a
 }
+.btn-secondary{
+  color: black;
+  border: none;
+  padding:5px 10px;
+    background-color: rgb(230, 230, 230);
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: not-allowed;
+}
+.secondary-now:hover{
+  background-color: #346adf;
+}

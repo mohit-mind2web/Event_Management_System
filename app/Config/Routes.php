@@ -38,6 +38,10 @@ $routes->group('admin', ['filter' => 'group:admin,superadmin'], function($routes
     $routes->post('manage-categories/store-subcategory', 'Admin\ManageCategoriesController::storeSubcategory');
     $routes->get('manage-categories/delete/(:num)', 'Admin\ManageCategoriesController::deleteCategory/$1');
     $routes->get('manage-categories/delete-subcategory/(:num)', 'Admin\ManageCategoriesController::deleteSubcategory/$1');
+    
+    // Manage Users Routes
+    $routes->get('manage-users', 'Admin\ManageUsersController::index');
+    $routes->get('manage-users/toggle-status/(:num)', 'Admin\ManageUsersController::toggleStatus/$1');
 });
 
 $routes->group('organizer', ['filter' => 'group:organizer'], function($routes) {

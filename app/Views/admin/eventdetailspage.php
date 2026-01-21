@@ -40,8 +40,8 @@
             </div>
             <div>
              <?php if ($event['status'] == 0 && empty($readonly)): ?>
-                 <a href="/admin/event-details/approve/<?= $event['id'] ?>" class="btn-approve" onclick="return confirm('Are you sure you want to approve this event?')">Approve Event</a>
-               <a href="/admin/event-details/reject/<?= $event['id'] ?>" class="btn-reject" onclick="return confirm('Do you really want to reject this event?')">Reject Event</a>
+                 <a href="/admin/event-details/approve/<?= $event['id'] ?>" class="btn-approve ajax-event-action-btn" data-action="approve">Approve Event</a>
+               <a href="/admin/event-details/reject/<?= $event['id'] ?>" class="btn-reject ajax-event-action-btn" data-action="reject">Reject Event</a>
             <?php endif; ?>
             </div>
         </div>
@@ -68,5 +68,6 @@
         </div>
     </section>
 
-    </section>
+</section>
 </main>
+<script src="/assets/js/admin/filter_pagination.js"></script>

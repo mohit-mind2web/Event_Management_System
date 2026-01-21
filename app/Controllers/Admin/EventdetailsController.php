@@ -34,10 +34,17 @@ class EventdetailsController extends BaseController
     {
         $eventModel = new EventModel();
         if (!$eventModel->find($id)) {
+             if ($this->request->isAJAX()) {
+                 return $this->response->setJSON(['success' => false, 'message' => 'Event not found.']);
+             }
              return redirect()->to('/admin/event-approval')->with('error', 'Event not found.');
         }
 
         $eventModel->update($id, ['status' => 1]); 
+        
+        if ($this->request->isAJAX()) {
+             return $this->response->setJSON(['success' => true, 'message' => 'Event approved successfully.']);
+        }
         
         return redirect()->to('/admin/event-approval')->with('message', 'Event approved successfully.');
     }
@@ -46,9 +53,17 @@ class EventdetailsController extends BaseController
     {
         $eventModel = new EventModel();
          if (!$eventModel->find($id)) {
+             if ($this->request->isAJAX()) {
+                 return $this->response->setJSON(['success' => false, 'message' => 'Event not found.']);
+             }
              return redirect()->to('/admin/event-approval')->with('error', 'Event not found.');
         }
         $eventModel->update($id, ['status' => 2]); 
+        
+        if ($this->request->isAJAX()) {
+             return $this->response->setJSON(['success' => true, 'message' => 'Event rejected successfully.']);
+        }
+
         return redirect()->to('/admin/event-approval')->with('message', 'Event rejected successfully.');
     }
 }

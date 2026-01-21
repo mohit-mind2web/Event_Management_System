@@ -31,8 +31,7 @@
                 <li><a href="/admin/manage-categories" class="<?= $current_page == '/admin/manage-categories' ? 'active' : '' ?>"> <i class="fas fa-layer-group"></i> Categories</a></li>
                 <li><a href="/admin/eventregistrations" class="<?= $current_page == '/admin/eventregistrations' ? 'active' : '' ?>">  <i class="fas fa-users"></i>View Registration</a></li>
                 <li><a href="/admin/paymentmonitoring" class="<?= $current_page == '/admin/paymentmonitoring' ? 'active' : '' ?>">  <i class="fas fa-credit-card"></i>Payment Monitoring</a></li>
-                <li><a href="/admin/usermanage" class="<?= $current_page == '/admin/usermanage' ? 'active' : '' ?>">   <i class="fas fa-users-cog"></i>Manage Users</a></li>
-                <li><a href="/admin/activity-logs" class="<?= $current_page == '/admin/activity-logs' ? 'active' : '' ?>"><i class="fas fa-clock-rotate-left"></i>Activity Logs</a></li>
+                <li><a href="/admin/manage-users" class="<?= $current_page == '/admin/manage-users' ? 'active' : '' ?>">   <i class="fas fa-users-cog"></i>Manage Users</a></li>
                 <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         <?php endif; ?>

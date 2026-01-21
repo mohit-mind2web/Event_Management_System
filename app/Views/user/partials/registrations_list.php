@@ -9,6 +9,9 @@
                         <a href="/user/ticket/<?= esc($reg['id']) ?>" class="btn btn-outline-primary my-registrations">
                             <i class="fas fa-ticket-alt"></i> View Ticket
                         </a>
+                        <?php else:?>
+                            <a href="/user/events/register/<?= $reg['event_id'] ?>" class="btn btn-warning btn-sm">Complete Payment !</a>
+
                     <?php endif; ?>
                 </div>
                 <div class="reg-description">

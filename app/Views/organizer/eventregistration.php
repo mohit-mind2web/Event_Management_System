@@ -13,17 +13,9 @@
     <section>
         <h2>Event Registrations</h2>
         <form action="" method="get" class="filters-container">
-            <div class="filter-group start">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
                     <input type="text" name="search" placeholder="Search events..." value="<?= esc($search) ?>">
-                </div>
-            </div>
-            
-            <div class="filter-group end">
                  <input type="text" name="date_range" class="filter-select datepicker-range" value="<?= esc($date_range ?? '') ?>" placeholder="Select Date Range">
                  <a href="/organizer/eventregistrations" class="btn-reset-filters"><i class="fas fa-undo"></i> Reset</a>
-            </div>
         </form>
         <div class="event-registrations" id="table-container">
             <?= $this->include('organizer/partials/eventregistration_table') ?>

@@ -49,8 +49,8 @@
         
     <?php
     $current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $pageTitle = 'Upcoming Events';
-    $breadcrumbLink = '/user/events';
+    $pageTitle = 'Payment Cancel';
+    $breadcrumbLink = '/user/payment/cancel';
     $parentBreadcrumb = null;
 
     if (strpos($current_path, '/user/home') !== false) {

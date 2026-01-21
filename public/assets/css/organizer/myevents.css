@@ -71,7 +71,6 @@ th {
   text-decoration: none;
 }
 
-/* Filter Styles */
 .filters-container {
   display: flex;
   justify-content: space-between;
@@ -82,7 +81,6 @@ th {
   padding: 15px;
   border-radius: 8px;
   background-color: #fff;
-  /* Added background for better visibility */
 }
 
 .filter-group {
@@ -153,5 +151,3 @@ th {
   align-items: center;
   gap: 5px;
 }
-
-/* Pagination Styles - Managed via pagination.css */

@@ -31,7 +31,19 @@
 
         <section class="event-detail">
             <div class="register-now">
-                <a href="/user/events/register/<?= $event['id'] ?>" class="btn-edit">Register Now</a>
+                 <?php 
+                    $userReg = $userRegistrations[$event['id']] ?? null;
+                 ?>
+                 <?php if ($userReg): ?>
+                        <?php if ($event['is_paid'] && $userReg['payment_status'] != 'paid'): ?>
+                            <a href="/user/events/register/<?= $event['id'] ?>" class="btn btn-warning btn-sm">Complete Payment !</a>
+                        <?php else: ?>
+                            <button class="btn btn-secondary btn-sm" disabled> Already Registered</button>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <a href="/user/events/register/<?= $event['id'] ?>" class="btn btn-primary btn-sm">Register Now</a>
+                    <?php endif; ?>
+                    </div>
             </div>
             <div class="event-details">
                 <h2>Event Detail</h2>

@@ -3,10 +3,14 @@
 
 <head>
     <link rel="stylesheet" href="/assets/css/admin/eventapproval.css">
+      <link rel="stylesheet" href="/assets/css/pagination.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <main>
-    <div class="table-container">
+    <section>
+    <div class="table-container_wrapper"> 
         <h2>Event Approval Requests</h2>
         
         <?php if (session()->getFlashdata('message')): ?>
@@ -21,41 +25,19 @@
             </div>
         <?php endif; ?>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Event Title</th>
-                    <th>Organizer ID</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Paid / Free</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($events)): ?>
-                    <?php foreach ($events as $index => $event): ?>
-                    <tr>
-                        <td><?= $index + 1 ?></td>
-                        <td><?= esc($event['title']) ?></td>
-                        <td><?= esc($event['organizer_id']) ?></td> 
-                        <td><?= date('d M Y', strtotime($event['start_datetime'])) ?></td>
-                        <td><?= esc($event['location']) ?></td>
-                        <td><?= $event['is_paid'] ? 'Paid' : 'Free' ?></td>
-                        <td><span class="badge badge-pending">Pending</span></td>
-                        <td>
-                            <a href="/admin/event-details/<?= $event['id'] ?>" class="btn" style="background-color: #007bff; color: white;">View Details</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="8" style="text-align:center;">No Recent event requests found.</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
+        <form class="filters-container">
+                <input type="text" name="title" placeholder="Search by Event Name..." value="<?= esc($title ?? '') ?>">
+            
+            <input type="text" name="date" class="datepicker-range filter-select" placeholder="Select Date Range" value="<?= esc($date ?? '') ?>" style="min-width: 200px;">
+
+            <button type="reset" class="btn-reset-filters">Reset</button>
+        </form>
+
+        <div class="table-container" id="table-container">
+            <?= $this->include('admin/partials/eventapproval_table') ?>
+        </div>
     </div>
+    </section>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="/assets/js/admin/filter_pagination.js"></script>
