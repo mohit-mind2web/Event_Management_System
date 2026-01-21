@@ -1,0 +1,46 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.card{
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.icon i{
+    font-size: 45px;
+    color: green;
+}
+.detail{
+    display:grid;
+    gap: 10px;
+}
+.detail h3{
+    font-size: 18px;
+    color: rgb(164 164 164);
+}
+.detail p{
+    font-size: 22px;
+    font-weight: bold;
+}
+.charts{
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.charts .chart{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 6px;
+}
+.charts .chart h3{
+    color: #4b525e;
+}

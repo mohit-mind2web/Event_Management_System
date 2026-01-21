@@ -12,7 +12,6 @@
     <section>
     <div class="table-container_wrapper"> 
         <h2>Event Approval Requests</h2>
-        
         <?php if (session()->getFlashdata('message')): ?>
             <div class="message">
                 <?= session()->getFlashdata('message') ?>

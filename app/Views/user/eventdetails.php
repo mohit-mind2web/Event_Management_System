@@ -83,7 +83,7 @@
                     </li>
                 </ul>
                 <div class="direction">
-                    <a href="">Get Direction</a>
+                    <a href="https://www.google.com/maps">Get Direction</a>
                 </div>
             </div>
 

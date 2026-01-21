@@ -23,7 +23,7 @@
                     <td><?= esc($registrations['payment_status']) ?></td>
                     <td>
                         <?php 
-                            // Smart Status Logic
+                            // status logic
                             $currentTime = date('Y-m-d H:i:s');
                             $startTime = isset($start_datetime) ? $start_datetime : date('Y-m-d H:i:s');
                             $endTime = isset($end_datetime) && $end_datetime ? $end_datetime : $startTime; 

@@ -32,3 +32,5 @@
 
 </section>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="/assets/js/admin/filter_pagination.js"></script>
