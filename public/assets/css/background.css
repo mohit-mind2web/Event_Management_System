@@ -33,21 +33,21 @@
     line-height: 80px;
 }
 
-.row {
+.row1 {
     margin-top: 20px;
 }
 
-.row ul {
+.row1 ul {
     background-color: transparent;
     color: #fff;
     padding-left: 0;
 }
 
-.row ul li {
+.row1 ul li {
     display: inline-block;
 }
 
-.row ul li a {
+.row1 ul li a {
     position: relative;
     color: #fff;
     text-decoration: none;

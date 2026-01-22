@@ -11,7 +11,7 @@
                 <li><a href="/">Homepage</a></li>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
-                <li><a href="mailto:admin@eventease.com">Help & Support</a></li>
+                <li><a href="/contact">Contact Support</a></li>
             </ul>
         </div>
         <div class="footer-icons">

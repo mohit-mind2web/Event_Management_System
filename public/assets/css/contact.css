@@ -1,0 +1,48 @@
+.contact-section{
+    border: 1px solid #ddd;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 6px;
+}
+.contact-section h2{
+    font-size: 22px;
+    color: #4f4f4f;
+}
+.contact-section p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+form{
+    margin-top: 30px;
+}
+form label{
+    font-size: 16px;
+}
+input,select,textarea{
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+button{
+   background-color: #2563EB;
+   color: white;
+   padding: 10px;
+   border:none;
+   border-radius: 6px;
+   cursor: pointer;
+}
+.btn{
+    display: flex;
+    justify-content: right;
+}
+.alert-success{
+    color: green;
+}
+.alert-danger{
+    color: red;
+}

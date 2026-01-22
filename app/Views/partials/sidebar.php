@@ -29,9 +29,10 @@
                 <li><a href="/admin/event-approval" class="<?= $current_page == '/admin/event-approval' ? 'active' : '' ?>"> <i class="fas fa-clipboard-check"></i>Event Approval</a></li>
                 <li><a href="/admin/allevents" class="<?= $current_page == '/admin/allevents' ? 'active' : '' ?>"> <i class="fas fa-calendar-days"></i>All Events</a></li>
                 <li><a href="/admin/manage-categories" class="<?= $current_page == '/admin/manage-categories' ? 'active' : '' ?>"> <i class="fas fa-layer-group"></i> Categories</a></li>
-                <li><a href="/admin/eventregistrations" class="<?= $current_page == '/admin/eventregistrations' ? 'active' : '' ?>">  <i class="fas fa-users"></i>View Registration</a></li>
+                <li><a href="/admin/eventregistrations" class="<?= $current_page == '/admin/eventregistrations' ? 'active' : '' ?>">  <i class="fas fa-users"></i>View Registrations</a></li>
                 <li><a href="/admin/paymentmonitoring" class="<?= $current_page == '/admin/paymentmonitoring' ? 'active' : '' ?>">  <i class="fas fa-credit-card"></i>Payment Monitoring</a></li>
                 <li><a href="/admin/manage-users" class="<?= $current_page == '/admin/manage-users' ? 'active' : '' ?>">   <i class="fas fa-users-cog"></i>Manage Users</a></li>
+                <li><a href="/admin/contact-queries" class="<?= $current_page == '/admin/contact-queries' ? 'active' : '' ?>">   <i class="fas fa-envelope"></i>Contact Queries</a></li>
                 <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         <?php endif; ?>

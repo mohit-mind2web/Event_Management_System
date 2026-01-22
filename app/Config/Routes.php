@@ -42,6 +42,10 @@ $routes->group('admin', ['filter' => 'group:admin,superadmin'], function($routes
     // Manage Users Routes
     $routes->get('manage-users', 'Admin\ManageUsersController::index');
     $routes->get('manage-users/toggle-status/(:num)', 'Admin\ManageUsersController::toggleStatus/$1');
+    
+    // Contact Queries Routes
+    $routes->get('contact-queries', 'Admin\ContactQueryController::index');
+    $routes->get('contact-queries/toggle-status/(:num)', 'Admin\ContactQueryController::toggleStatus/$1');
 });
 
 $routes->group('organizer', ['filter' => 'group:organizer'], function($routes) {
@@ -74,16 +78,24 @@ $routes->group('user', ['filter' => 'group:user'], function($routes) {
     $routes->post('events/confirm', 'User\EventRegistrationController::confirm');
     $routes->get('ticket/(:num)', 'User\TicketController::index/$1');
     
+    //payment
     $routes->post('payment/checkout', 'User\PaymentController::checkout');
     $routes->get('payment/success', 'User\PaymentController::success');
     $routes->get('payment/cancel', 'User\PaymentController::cancel');
+    //registration
 
     $routes->get('registrations', 'User\MyRegistrationsController::index');
     $routes->get('payments', 'User\TransactionsController::index');
     $routes->get('profile/(:num)', 'User\ProfileController::index/$1');
     $routes->post('profile/update/(:num)', 'User\ProfileController::update/$1');
+
+
 });
 
 $routes->post('api/events', 'Api\EventController::create');
 $routes->post('api/events/update/(:num)', 'Api\EventController::update/$1');
 $routes->get('api/categories/(:num)/subcategories', 'Api\SubcategoryController::getByCategory/$1');
+
+    //query
+    $routes->get('contact','ContactController::index');
+    $routes->post('contact/submit', 'ContactController::submit');

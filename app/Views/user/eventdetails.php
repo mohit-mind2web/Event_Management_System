@@ -1,5 +1,4 @@
 <?= $this->include('partials/userheader') ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +17,7 @@
                 </div>
             <?php endif; ?>
             <div class="description-box">
-                <h3>Description</h3>
+                <h3>About the Event</h3>
                 <p><?= esc($event['description']) ?></p>
             </div>
             <div class="tag">

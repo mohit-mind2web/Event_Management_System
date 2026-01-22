@@ -13,9 +13,21 @@
     gap: 30px;
 }
 .icon i{
-    font-size: 45px;
-    color: green;
+    font-size: 26px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.text-green  {background: #E8F5E9; color: #2E7D32; }
+.text-blue   { background: #E3F2FD; color: #1565C0; }
+.text-orange { background: #FFF3E0;color: #EF6C00; }
+.text-purple { background: #F3E5F5;color: #7B1FA2; }
+.text-cyan   { background: #E0F7FA; color: #00838F; }
+.text-brown  { background: #EFEBE9; color: #5D4037; }
 .detail{
     display:grid;
     gap: 10px;
@@ -36,11 +48,21 @@
 }
 .charts .chart{
     width: 400px;
-    height: 300px;
+    height: 320px;
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 6px;
 }
 .charts .chart h3{
     color: #4b525e;
+    font-size: 16px;
+}
+#registrationsChart{
+    margin-top: 20px;
+}
+#paymentsChart{
+    margin-top: 20px;
+}
+#eventStatusChart{
+    margin-top: 20px;
 }

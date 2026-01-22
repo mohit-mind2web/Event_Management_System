@@ -75,7 +75,7 @@ class EventRegistrationController extends BaseController
                                          ->first();
 
         // If it's a paid event and they are already registered but unpaid, we still show summary to let them pay.
-        // If free and registered, kick them out.
+        // If free and registered, redirect to events
         if ($existingReg && (!$event['is_paid'] || $existingReg['payment_status'] == 'paid')) {
              return redirect()->to('/user/events')->with('message', 'You have already registered for this event.');
         }
